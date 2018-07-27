@@ -1,8 +1,8 @@
-#Javascript中的null、undefined和NaN
+# Javascript中的null、undefined和NaN
 
 Javascript的基本数据类型除了 `Number`、`String`、`Boolean` 和 `Object` 外，还有两个比较容易混淆的 `null`、`undefined`。
 
-##null
+## null
 `null` 表示一个指向不存在或者无效的对象或者地址引用。他是一个全局对象，也是Javascript的初始值之一。
 
 ![img](http://pchbeel8i.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%889.39.30.png)
@@ -16,7 +16,7 @@ Javascript的基本数据类型除了 `Number`、`String`、`Boolean` 和 `Objec
 ![img](http://pchbeel8i.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%889.59.53.png)
 
 
-##undefined
+## undefined
 
 全局属性 `undefined` 表示原始值 `undefined`。它也是Javascript的原始数据类型之一。`undefined` 是全局作用域的一个变量。`undefined` 的初始值就是 `undefined`。一个没有被赋值的变量的类型是 `undefined`。如果方法或者是语句中操作的变量没有被赋值，就会返回 `undefined`。
 
@@ -28,20 +28,20 @@ Javascript的基本数据类型除了 `Number`、`String`、`Boolean` 和 `Objec
 
 如果在任何运算中用了 `undefined`，它会返回 `NaN` 的值。和 `null` 差不多，否定 `undefined` 返回 `true`，与 `true` 或者 `false` 比较则返回 `false`。
 
-##null和undefined的区别
+## null和undefined的区别
 
-###相似之处
+### 相似之处
 
 * 被否定时，`null` 和 `undefined` 都是 `true`
 * 代表不存在的东西
 
-###不同之处
+### 不同之处
 
 * `null` 表示无，不存在的；`undefined` 表示未定义
 * `null` 是一个对象；`undefined` 是一个数据类型
 * 基本数学运算中，`null` 被当做 `0`，`undefined` 返回的则是 `NaN`。
 
-###`null` PK `undefined`
+### `null` PK `undefined`
 
 ![img](http://pchbeel8i.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8811.12.01.png)
 
@@ -49,7 +49,7 @@ Javascript的基本数据类型除了 `Number`、`String`、`Boolean` 和 `Objec
 `null === undefined` 返回 `false` 是因为这次没有进行类型转换，在比较的时候同时比较了两者的数据类型。
 最后两个就比较简单了，`!null == !undefined` 和 `!null === !undefined`，上文提到过两者的否定都返回了 `true`，所以这两个语句就相当于 `true == true` 和 `true === true`了。
 
-##NaN（Not a Number）
+## NaN（Not a Number）
 
 全局 `NaN` 属性是个表示非数字的值。
 
@@ -88,7 +88,7 @@ isNaN(itsANumber)           //---> false
 
 ```
 
-##总结一下
+## 总结一下
 
 `null` 表示不存在的或者无效的对象或者地址引用。简单数学运算中会被转换为 `0`，他是一个全局对象。
 
