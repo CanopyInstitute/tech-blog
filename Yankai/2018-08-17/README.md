@@ -128,11 +128,17 @@ L == null
 
 #### 参考
 [https://www.cnblogs.com/zichi/p/4561564.html](https://www.cnblogs.com/zichi/p/4561564.html)
+
 [https://www.cnblogs.com/objectorl/archive/2010/01/11/Object-instancof-Function-clarification.html](https://www.cnblogs.com/objectorl/archive/2010/01/11/Object-instancof-Function-clarification.html)
+
 [https://www.cnblogs.com/SourceKing/p/5766210.html](https://www.cnblogs.com/SourceKing/p/5766210.html)
+
 [https://blog.csdn.net/u014181418/article/details/51720008](https://blog.csdn.net/u014181418/article/details/51720008)
+
 [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
+
 [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
+
 
 
 
