@@ -1,4 +1,4 @@
-# Javascript原型链和instanceof运算符之间的暧昧关系
+﻿# Javascript原型链和instanceof运算符之间的暧昧关系
 
 ## 面试题
 ```js
@@ -125,6 +125,14 @@ L == null
 #### 一个小坑
 
 在使用 `instanceof` 运算符判断 `true instanceof Boolean` 会返回 `false`。是由于Javscript的数据类型导致的，`true` 所属的 `Boolean` 类型属于Javascript的基础类型，使用引用类型的 `new Boolean(true) instanceof Boolean` 才会返回期望的结果 `true`, 所以要判断Boolean类型的值，还是推荐使用 `typeof`。
+
+#### 参考
+[https://www.cnblogs.com/zichi/p/4561564.html](https://www.cnblogs.com/zichi/p/4561564.html)
+[https://www.cnblogs.com/objectorl/archive/2010/01/11/Object-instancof-Function-clarification.html](https://www.cnblogs.com/objectorl/archive/2010/01/11/Object-instancof-Function-clarification.html)
+[https://www.cnblogs.com/SourceKing/p/5766210.html](https://www.cnblogs.com/SourceKing/p/5766210.html)
+[https://blog.csdn.net/u014181418/article/details/51720008](https://blog.csdn.net/u014181418/article/details/51720008)
+[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
+[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
 
 
 
