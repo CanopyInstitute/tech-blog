@@ -3,11 +3,11 @@
 ### 前段时间做小程序发现一个问题，因为微信的request请求是类似于ajax的，不是浏览器发出的请求，因此请求不会带sessionid，所以获取不到存储在服务器端的session###
 
 ## sessionid的作用
-sessionid是用来识别用户会话的唯一标识，当浏览器第一次请求服务器时，服务器会生成一个sessionid,并通过response headers中的set-cookie返回给浏览器，浏览器将sessionid存储在cookie中![如图](http://47.98.193.94/tp/Uploads/set-cookie.jpg)
+sessionid是用来识别用户会话的唯一标识，当浏览器第一次请求服务器时，服务器会生成一个sessionid,并通过response headers中的set-cookie返回给浏览器，浏览器将sessionid存储在cookie中![如图](http://test.isuibi.net/Uploads/set-cookie.jpg)
 
 当用户请求时，会在header中附带sessionid的信息，服务器就会将cookie中存储的sessionid和服务器中的sessionid相比较，从而找到用户的session信息。
 
-![img](http://47.98.193.94/tp/Uploads/cookie-1.jpg)
+![img](http://test.isuibi.net/Uploads/cookie-1.jpg)
 
 ## session和cookie的区别
 session和cookie是一种会话机制，sesson是服务器端的机制，cookie是浏览器的机制，session的实现是依赖于cookie的。
