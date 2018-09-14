@@ -1,4 +1,4 @@
-# Javscript的垃圾回收机制与内存泄露
+﻿# Javscript的垃圾回收机制与内存泄露
 
 ## 简介
 
@@ -207,10 +207,6 @@ var replaceThing = function () {
   };
 };
 ```
-
-调用 `replaceThing` 之后, 调用 `theThing.someMethod` , 会输出 123 , 基本的闭包.
-
-解释一下的话, `theThing` 包含一个 `someMethod` 方法, 该方法引用了函数中的 `someMessage` 变量, 所以函数中的 `someMessage` 变量不会被回收, 调用 `someMethod` 可以拿到它正确的 `console.log` 出来.
 
 这个代码片段做了一件事：每次 `replaceThing` 被调用的时候，`theThing` 获取到一个包括一个大数组和新闭包(`someMethod`)的新对象。同时，变量 `unused` 保留了一个有 `originalThing`（`theThing` 从之前的对 `replaceThing ` 的调用）引用的闭包。重要的是一旦一个作用域被在同个父作用域下的闭包创建，那个作用域是共享的。这种情况下，为闭包 `somMethod ` 创建的作用域被 `unused` 共享了。`unused` 有一个对 `originalThing ` 的引用。即使 `unused` 从来没被用过，`someMethod` 可以通过 `theTing` 被使用。由于 `someMethod` 和 `unused` 共享了闭包作用域，即使 `unused` 从来没被用过，它对 `originalThing` 的引用迫使它停留在活跃状态（不能回收）。当这个代码片段重复运行的时候，可以看到内存使用稳步的增长。GC运行的时候，这并不会减轻。本质上，一组关联的闭包被创建（同 `unused` 变量在表单中的根节点一起），这些闭包作用域中每个带了大数组一个非直接的引用，导致了大型的泄漏。
 
