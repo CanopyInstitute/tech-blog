@@ -1,4 +1,4 @@
-#令人困惑的strtotime
+# 令人困惑的strtotime
 >作者: 风雪之隅
 
 >来自 [http://www.laruence.com/2018/07/31/3207.html](http://www.laruence.com/2018/07/31/3207.html)
