@@ -26,9 +26,8 @@
 
 每个元素使用相同的 `font-size`，但使用不同的 `font-family`，但渲染出来的 `line-height` 是不同的：
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-1.png)
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-0.png)
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-2.png)
 
 即使我们意识到这种行为，但还是不清楚为什么 `font-size:100px` 时元素的 `height` 不是 `100px` ？测量发现：`Arial` 字体的高度是 `112px` ， `Gadugi` 字体的高度是 `133px` 和 `Verdana` 字体的高度是 `122px` 。
 
@@ -40,14 +39,18 @@
 
 下面以 `Arial` 字体为例，用 `FontForge` 来查看这个字体的度量参数：
 
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-1.png)
+
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-2.png)
+
 * em-square 为 `2048`
 * 上升(ascender)是 `1854` 和下降（descender）是 `434` 。相同的测试下，浏览器使用HHead Ascent/Descent值（Mac）和Win Ascent/Descent值（Windows），这些值可能不同。我们还需要注意，Capital高度是 `1467` 和x-height的值是 `1062`
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-3.png)
-
 这意味着 `Arial` 字体在 `2048` 个单位的em-square使用了 `1854 + 434` 个单位，也就是说 个单位，也就是说 `font-size:100px` 的时候，其高度是 `(1854 + 434) / 2048 * 100 = 111.71875px` 。这个计算高度定义了元素内容高度（在这篇文章中其它部分引用这个术语**content-area**）。你可能想到是内容区域相当于 `background` 属性。
 
-我们也可以预测，大写字母是 `72px` 高度（1467个单位）和小写字母（x-hegiht）是 `52px` 高度（1062个单位）。因此， `1ex = 49px` 和 `1em = 100px`，而不是 `112px`（值得庆幸的是，em是基于font-size计算，而不是height）。
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-3.jpg)
+
+我们也可以看出来，大写字母是 `72px` 高度（1467个单位）和小写字母（x-hegiht）是 `52px` 高度（1062个单位）。因此， `1ex = 49px` 和 `1em = 100px`，而不是 `112px`（值得庆幸的是，em是基于font-size计算，而不是height）。
 
 ### 延伸一个概念 line-box
 
@@ -71,7 +74,7 @@
 * 第一个和最后一个每个包含一个匿名内联元素（文本内容）
 * 第二个包含了两个匿名内联元素和三个 `<span>`
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-4.png)
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-4.jpg)
 
 我们清楚的看到，第二个line-box明显比其他的line-box要更高，根据子元素的内容区域（content-area）计算得来，更具体地说，是使用了`content-area` 更高的字体。
 
@@ -86,7 +89,7 @@
 * 内容区域高度是由字体来决定的（前面介绍过）
 * 虚拟区域（virtual-area）高度是 `line-height` ，它的高度用于计算line-box的高度
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-5.png)
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-5.jpg)
 
 计算虚拟区域（virtual-area）和内容区域（content-area）高度差称为leading。leading添加在内容区域顶部，另一半添加在内容区域底部。因此，内容区域总是在虚拟区域的中间。
 
@@ -100,7 +103,7 @@
 
 对于这些特定的行内元素，高度计算基于他们的 `height`、`margin` 和 `border` 属性。如果 `hegiht` 的值是 `auto`，然后使用 `line-height` 时content-area严格上等于 `line-height`。
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-6.png)
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-6.jpg)
 
 无论如何，我们仍然面临的问题是 `line-height` 的 `normal` 值是多小？答案是，其计算content-area高度还是依据于里面的字体来度量。
 
@@ -115,7 +118,7 @@
 
 显而易见，设置 `line-height:1` 是一个非常糟糕的做法。`font-size` 没有单位的观念是相对的，但内容区域不是相对的以及处理虚拟区域小于内容区域有很多问题存在。
 
-![img](http://pchbeel8i.bkt.clouddn.com/20181115-7.png)
+![img](http://pchbeel8i.bkt.clouddn.com/20181115-7.jpg)
 
 据统计，在1117种常用字体中，有95%的字体计算的 `line-height` 大于1。而这些字体计算的 `line-height` 值的浮动区域在 `0.618` 到 `3.378`。
 
