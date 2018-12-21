@@ -1,6 +1,7 @@
 # MYSQL - 索引
 
 >作者: 人云思云
+
 >来自: [MYSQL-索引](https://segmentfault.com/a/1190000003072424)
 ## 概述
 
@@ -33,21 +34,24 @@ MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取�
 |R-Tree 索引      |支持	            |不支持           |不支持           |
 |Full-text 索引   |不支持           |暂不支持         |不支持           |
 
-##### B-TREE索引类型
+#### B-TREE索引类型
  - 普通索引
- 这是最基本的索引类型，而且它没有唯一性之类的限制。普通索引可以通过以下几种方式创建：
- 1. 创建索引: CREATE INDEX 索引名 ON 表名(列名1，列名2,...);
- 2. 修改表: ALTER TABLE 表名ADD INDEX 索引名 (列名1，列名2,...);
- 3. 创建表时指定索引：CREATE TABLE 表名 ( [...], INDEX 索引名 (列名1，列名 2,...) );
+
+ 这是最基本的索引类型，而且它**没有唯一性之类的限制**。普通索引可以通过以下几种方式创建：
+     1. 创建索引: CREATE INDEX 索引名 ON 表名(列名1，列名2,...);
+     2. 修改表: ALTER TABLE 表名ADD INDEX 索引名 (列名1，列名2,...);
+     3. 创建表时指定索引：CREATE TABLE 表名 ( [...], INDEX 索引名 (列名1，列名 2,...) );
  - UNIQUE索引
- 表示唯一的，不允许重复的索引，如果该字段信息保证不会重复例如身份证号用作索引时，可设置为unique：
- 1. 创建索引：CREATE UNIQUE INDEX 索引名 ON 表名(列的列表);
- 2. 修改表：ALTER TABLE 表名ADD UNIQUE 索引名 (列的列表);
- 3. 创建表时指定索引：CREATE TABLE 表名( [...], UNIQUE 索引名 (列的列表) );
+
+ **表示唯一的，不允许重复的索引**，如果该字段信息保证不会重复例如身份证号用作索引时，可设置为unique：
+     1. 创建索引：CREATE UNIQUE INDEX 索引名 ON 表名(列的列表);
+     2. 修改表：ALTER TABLE 表名ADD UNIQUE 索引名 (列的列表);
+     3. 创建表时指定索引：CREATE TABLE 表名( [...], UNIQUE 索引名 (列的列表) );
  - 主键：PRIMARY KEY索引
- 主键是一种唯一性索引，但它必须指定为“PRIMARY KEY”。
- 1. 主键一般在创建表的时候指定：“CREATE TABLE 表名( [...], PRIMARY KEY (列的列表) ); ”。
- 2. 但是，我们也可以通过修改表的方式加入主键：“ALTER TABLE 表名ADD PRIMARY KEY (列的列表); ”。
+
+ **主键是一种唯一性索引**，但它必须指定为“PRIMARY KEY”。
+     1. 主键一般在创建表的时候指定：“CREATE TABLE 表名( [...], PRIMARY KEY (列的列表) ); ”。
+     2. 但是，我们也可以通过修改表的方式加入主键：“ALTER TABLE 表名ADD PRIMARY KEY (列的列表); ”。
  每个表只能有一个主键。 （主键相当于聚合索引，是查找最快的索引）
   **注：不能用CREATE INDEX语句创建PRIMARY KEY索引**
 
