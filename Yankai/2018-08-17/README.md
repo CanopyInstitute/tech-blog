@@ -1,4 +1,4 @@
-﻿# Javascript原型链和instanceof运算符之间的暧昧关系
+# Javascript原型链和instanceof运算符之间的暧昧关系
 
 ## 面试题
 ```js

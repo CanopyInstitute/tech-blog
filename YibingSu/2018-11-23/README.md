@@ -1,4 +1,4 @@
-﻿# 代码的抽象三原则
+# 代码的抽象三原则
 >作者 阮一峰
 
 >来自 [阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/01/abstraction_principles.html)
