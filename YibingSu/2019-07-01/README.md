@@ -59,7 +59,7 @@ select ID from table where name like '张%'
 
 对于这颗主键索引的树
 
-<center>![picture](./picture/5.jpg)</center>
+<div align="center">![picture](./picture/5.jpg)</div>
 
 如果我们插入 ID = 650 的一行数据，那么直接在最右边插入就可以了
 
