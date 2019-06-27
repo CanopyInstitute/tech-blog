@@ -11,11 +11,11 @@
 
 例如下面这张表
 
-<center>![picture](./picture/1.jpg)</center>
+![picture](./picture/1.jpg)
 
 如果我们按照 name 字段来建立索引的话，采用B+树的结构，大概的索引结构如下
 
-<center>![picture](./picture/2.jpg)</center>
+![picture](./picture/2.jpg)
 
 如果我们要进行模糊查找，查找name 以“张"开头的所有人的ID，即 sql 语句为
 ```
@@ -39,11 +39,11 @@ select ID from table where name like '张%'
 
 例如对于下面这个表(其实就是上面的表中增加了一个k字段),且ID是主键。
 
-<center>![picture](./picture/3.jpg)</center>
+![picture](./picture/3.jpg)
 
 主键索引和非主键索引的示意图如下：
 
-<center>![picture](./picture/4.jpg)</center>
+![picture](./picture/4.jpg)
 
 其中R代表一整行的值。
 
@@ -59,7 +59,7 @@ select ID from table where name like '张%'
 
 对于这颗主键索引的树
 
-<div align="center">![picture](./picture/5.jpg)</div>
+![picture](./picture/5.jpg)
 
 如果我们插入 ID = 650 的一行数据，那么直接在最右边插入就可以了
 
