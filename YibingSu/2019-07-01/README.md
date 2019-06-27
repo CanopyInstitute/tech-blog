@@ -63,7 +63,7 @@ select ID from table where name like '张%'
 
 如果我们插入 ID = 650 的一行数据，那么直接在最右边插入就可以了
 
-<center>![picture](./picture/6.jpg)</center>
+![picture](./picture/6.jpg)
 
 但是如果插入的是 ID = 350 的一行数据，由于 **B+ 树是有序的**，那么需要将下面的叶子节点进行移动，**腾出位置**来插入 ID = 350 的数据，这样就会比较消耗时间，如果刚好 R4 所在的数据页已经满了，需要进行页分裂操作，这样会更加糟糕。
 
