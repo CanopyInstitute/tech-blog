@@ -1,6 +1,7 @@
 # 浏览器同源政策及其规避方法
 
 >阮一峰
+
 >来自: [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 
 ## 一、概述
@@ -35,9 +36,9 @@
 
 随着互联网的发展，"同源政策"越来越严格。目前，如果非同源，共有三种行为受到限制。
 
-1.Cookie、LocalStorage 和 IndexDB 无法读取。
-2.DOM 无法获得。
-3.AJAX 请求不能发送。
+1. Cookie、LocalStorage 和 IndexDB 无法读取。
+2. DOM 无法获得。
+3. AJAX 请求不能发送。
 
 虽然这些限制是必要的，但是有时很不方便，合理的用途也受到影响。下面，我将详细介绍，如何规避上面三种限制。
 
