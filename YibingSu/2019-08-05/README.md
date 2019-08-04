@@ -3,9 +3,9 @@
 >阮一峰
 >来自: [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 
-##一、概述
+## 一、概述
 
-###1.1 含义
+### 1.1 含义
 
 1995年，同源政策由 Netscape 公司引入浏览器。目前，所有浏览器都实行这个政策。
 最初，它的含义是指，A网页设置的 Cookie，B网页不能打开，除非这两个网页"同源"。所谓"同源"指的是"**三个相同**"。
@@ -21,7 +21,7 @@
 - `http://v2.www.example.com/dir/other.html`：不同源（**域名不同**）
 - `http://www.example.com:81/dir/other.html`：不同源（**端口不同**）
 
-###1.2目的
+### 1.2目的
 
 同源政策的目的，是为了**保证用户信息的安全**，防止恶意的网站窃取数据。
 
@@ -31,7 +31,7 @@
 
 由此可见，"同源政策"是必需的，否则 Cookie 可以共享，互联网就毫无安全可言了。
 
-###1.3限制范围
+### 1.3限制范围
 
 随着互联网的发展，"同源政策"越来越严格。目前，如果非同源，共有三种行为受到限制。
 
@@ -41,7 +41,7 @@
 
 虽然这些限制是必要的，但是有时很不方便，合理的用途也受到影响。下面，我将详细介绍，如何规避上面三种限制。
 
-##二、Cookie
+## 二、Cookie
 
 Cookie 是服务器写入浏览器的一小段信息，只有**同源的网页才能共享**。但是，两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置**document.domain**共享 Cookie。
 
@@ -65,7 +65,7 @@ Set-Cookie: key=value; domain=.example.com; path=/
 ```
 这样的话，二级域名和三级域名不用做任何设置，都可以读取这个Cookie。
 
-##三、iframe
+## 三、iframe
 
 如果两个网页不同源，就**无法拿到对方的DOM**。典型的例子是iframe窗口和window.open方法打开的窗口，它们与父窗口无法通信。
 
@@ -89,7 +89,7 @@ window.parent.document.body
 - window.name
 - 跨文档通信API（Cross-document messaging）
 
-###3.1 片段识别符
+### 3.1 片段识别符
 
 片段标识符（fragment identifier）指的是，**URL的#号后面的部分**，比如`http://example.com/x.html#index`的#index的。如果只是**改变片段标识符，页面不会重新刷新**。
 
@@ -111,7 +111,7 @@ function checkMessage() {
 ```javascript
 parent.location.href= target + "#" + hash;
 ```
-###3.2 window.name
+### 3.2 window.name
 
 浏览器窗口有**window.name**属性。这个属性的最大特点是，**无论是否同源，只要在同一个窗口里，前一个网页设置了这个属性，后一个网页可以读取它**。
 
@@ -129,7 +129,7 @@ var data = document.getElementById('myFrame').contentWindow.name;
 ```
 这种方法的优点是，window.name**容量很大**，可以放置**非常长的字符串**；缺点是**必须监听子窗口window.name属性的变化，影响网页性能**。
 
-###3.3 window.postMessage
+### 3.3 window.postMessage
 
 上面两种方法都属于破解，HTML5为了解决这个问题，引入了一个全新的API：**跨文档通信 API**（Cross-document messaging）。
 
@@ -137,7 +137,7 @@ var data = document.getElementById('myFrame').contentWindow.name;
 
 举例来说，父窗口`http://aaa.com`向子窗口`http://bbb.com`发消息，调用**postMessage**方法就可以了。
 
-##四、AJAX
+## 四、AJAX
 
 同源政策规定，**AJAX请求只能发给同源的网址**，否则就报错。
 
@@ -147,13 +147,13 @@ var data = document.getElementById('myFrame').contentWindow.name;
 - WebSocket
 - CORS
 
-###4.1 JSONP
+### 4.1 JSONP
 
 JSONP是**服务器与客户端跨源通信**的常用方法。最大特点就是**简单适用**，老式浏览器全部支持，服务器改造非常小。
 
 它的基本思想是，网页通过添加一个``<script>``元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。
 
-###4.2 WebSocket
+### 4.2 WebSocket
 
 WebSocket是一种**通信协议**，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议**不实行同源政策**，只要**服务器支持**，就可以通过它进行跨源通信。
 
@@ -179,6 +179,6 @@ Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
 Sec-WebSocket-Protocol: chat
 ```
 
-###4.3 CORS
+### 4.3 CORS
 
 CORS是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是W3C标准，是**跨源AJAX请求的根本解决方法**。相比JSONP只能发GET请求，**CORS允许任何类型的请求**。
