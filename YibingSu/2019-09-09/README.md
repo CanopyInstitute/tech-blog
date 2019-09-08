@@ -14,14 +14,14 @@
 
 ## Web Service的优势
 
--  **平台无关。**不管你使用什么平台，都可以使用Web service。
-- **编程语言无关。**只要遵守相关协议，就可以使用任意编程语言，向其他网站要求Web service。这大大增加了web service的适用性，降低了对程序员的要求。
-- 对于Web service提供者来说，部署、升级和维护Web service都非常单纯，**不需要考虑客户端兼容问题，**而且一次性就能完成。
+- **平台无关**。不管你使用什么平台，都可以使用Web service。
+- **编程语言无关**。只要遵守相关协议，就可以使用任意编程语言，向其他网站要求Web service。这大大增加了web service的适用性，降低了对程序员的要求。
+- 对于Web service提供者来说，部署、升级和维护Web service都非常单纯，**不需要考虑客户端兼容问题**，而且一次性就能完成。
 - 对于Web service使用者来说，**可以轻易实现多种数据、多种服务的聚合**（mashup），因此能够做出一些以前根本无法想像的事情。
 
 
 ## WSDL
-Web Services Description Language，**网络服务描述语言，**简称WSDL。它是一门基于 XML 的语言，用于描述 Web Services 以及如何对它们进行访问。
+Web Services Description Language，**网络服务描述语言**，简称WSDL。它是一门基于 XML 的语言，用于描述 Web Services 以及如何对它们进行访问。
 
 WSDL 文档主要使用以下几个元素来描述某个 web service ：
 1. web service 执行的操作。
@@ -31,4 +31,4 @@ WSDL 文档主要使用以下几个元素来描述某个 web service ：
 
 
 ## SOAP  
-Simple Object Access Protocol，简单对象访问协议是**交换数据的一种规范，**在Web Service中，交换带结构信息。可基于HTTP等协议，使用XML格式传输，抽象于语言实现、平台和硬件。即多语言包括PHP、Java、.Net均可支持。
+Simple Object Access Protocol，简单对象访问协议是**交换数据的一种规范**，在Web Service中，交换带结构信息。可基于HTTP等协议，使用XML格式传输，抽象于语言实现、平台和硬件。即多语言包括PHP、Java、.Net均可支持。
